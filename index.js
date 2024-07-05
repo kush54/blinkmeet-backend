@@ -6,8 +6,11 @@ const server = createServer(app);
 const cors = require("cors");
 const { addNewUser, removeUser, addupChatUsers, removeUnpairedUser, addupVideoUsers,getUnpairedVideoUsers,getUser,getUsers,getUnpairedChatUsers, upChatUsers,upVideoUsers,removeUnpairedUserVideo } = require("./help");
 
+const path = require("path");
 
 
+app.use(express.static("public"));
+app.use(express.static(path.resolve(__dirname,'build')));
 
 
 const io = new Server(server, {
@@ -24,6 +27,8 @@ app.use(
     credentials: true,
   })
 );
+
+
 
 io.on("connection", (socket) => {
   console.log("connected", socket.id);
