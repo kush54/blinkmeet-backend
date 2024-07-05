@@ -18,14 +18,14 @@ app.use(express.static(path.resolve(__dirname,'build')));
 
 const io = new Server(server, {
   cors: {
-    origin: "http://localhost:3000",
+    origin: "https://u4m.vercel.app",
     methods: ["GET", "POST"],
     credentials: true,
   },
 });
 app.use(
   cors({
-    origin: "http://localhost:3000",
+    origin: "https://u4m.vercel.app",
     methods: ["GET", "POST"],
     credentials: true,
   })
