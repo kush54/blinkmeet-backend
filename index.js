@@ -12,6 +12,9 @@ const path = require("path");
 app.use(express.static("public"));
 app.use(express.static(path.resolve(__dirname,'build')));
 
+// git remote add origin https://github.com/kush54/hello.git
+// git branch -M main
+// git push -u origin main
 
 const io = new Server(server, {
   cors: {
