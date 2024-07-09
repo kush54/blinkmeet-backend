@@ -24,16 +24,16 @@ const {
 // Serve static files from the React app
 app.use(express.static(path.join(__dirname, 'build')));
 
-// CORS configuration
+// CORS configuration https://u4m.vercel.app
 app.use(cors({
-  origin: "https://u4m.vercel.app",
+  origin: "http://localhost:3000",
   methods: ["GET", "POST"],
   credentials: true,
 }));
 
 const io = new Server(server, {
   cors: {
-    origin: "https://u4m.vercel.app",
+    origin: "http://localhost:3000",
     methods: ["GET", "POST"],
     credentials: true,
   },
@@ -66,8 +66,9 @@ io.on("connection", (socket) => {
     removeUnpairedUser(user.id);
   });
 
-  socket.on("send-message", ({ message, receiver }) => {
-    io.to(receiver).emit("send-message", message);
+  socket.on("send-message", ({ message, reciever }) => {
+    console.log("aya",message,reciever)
+    io.to(reciever).emit("send-message", message);
   });
 
   socket.on("chat-close", (receiver, callback) => {
