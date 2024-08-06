@@ -1,24 +1,10 @@
 {
-    "builds": [
-      {
-        "src": "index.js",
-        "use": "@vercel/node"
-      },
-      {
-        "src": "build/**",
-        "use": "@vercel/static"
-      }
-    ],
-    "routes": [
-      {
-        "src": "/chat",
-        "dest": "index.js"
-      },
-     
-      {
-        "src": "/video",
-        "dest": "index.js"
-      }
-     
-    ]
-  }
+  "version":2,
+  "builds":[
+    {"src":"*.js","use":"@vercel/node"}
+  ],
+  "routes":[{
+    "src":"/(.*)",
+    "dest":"/"
+  }]
+}

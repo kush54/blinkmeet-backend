@@ -22,7 +22,7 @@ const {
 } = require("./help");
 
 // Serve static files from the React app
-app.use(express.static(path.join(__dirname, 'build')));
+// app.use(express.static(path.join(__dirname, 'build')));
 
 // CORS configuration https://u4m.vercel.app
 app.use(cors({
@@ -144,9 +144,9 @@ io.on("connection", (socket) => {
 });
 
 // Catch-all handler for any requests not handled above
-app.get('*', (req, res) => {
-  res.sendFile(path.resolve(__dirname, 'build', 'index.html'));
-});
+// app.get('*', (req, res) => {
+//   res.sendFile(path.resolve(__dirname, 'build', 'index.html'));
+// });
 
 server.listen(8000, () => {
   console.log("server started at port 8000");
